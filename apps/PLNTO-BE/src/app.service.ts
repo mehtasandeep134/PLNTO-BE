@@ -6,9 +6,6 @@ import { UserCreatedEvent } from 'apps/events/user.event';
 
 @Injectable()
 export class AppService {
-  private readonly users: any[] = [];
-  private readonly companies: any[] = [];
-
   constructor(
     @Inject('COMMUNICATION') private readonly communicationClient: ClientProxy,
     @Inject('PRODUCTS') private readonly productsClient: ClientProxy,
@@ -20,7 +17,6 @@ export class AppService {
   }
 
   createUser(createUserRequest: CreateUserRequest) {
-    this.users.push(createUserRequest);
     this.communicationClient.emit(
       'user_created',
       new UserCreatedEvent(createUserRequest.email),
@@ -32,7 +28,6 @@ export class AppService {
   }
 
   createProducts(createProductsRequest: CreateUserRequest) {
-    this.companies.push(createProductsRequest);
     this.communicationClient.emit(
       'products_created',
       new UserCreatedEvent(createProductsRequest.email),
