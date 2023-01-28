@@ -4,7 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { EventEmitterModule } from '@nestjs/event-emitter';
 import { ConfigModule } from '@nestjs/config';
-import { DatabaseDBModule } from 'apps/database/database.module';
+// import { DatabaseDBModule } from 'apps/database/database.module';
 
 @Module({
   imports: [
@@ -12,7 +12,7 @@ import { DatabaseDBModule } from 'apps/database/database.module';
       isGlobal: true,
       expandVariables: true,
     }),
-    DatabaseDBModule,
+    // DatabaseDBModule,
     EventEmitterModule.forRoot({
       // set this to `true` to use wildcards
       wildcard: false,
