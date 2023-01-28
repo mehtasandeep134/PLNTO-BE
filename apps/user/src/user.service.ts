@@ -16,9 +16,9 @@ export class UserService {
 
   async handleUserCreated(data: UserCreatedEvent) {
     console.log('user creation handling', data);
-    const newSubscriber = await this.userRepository.create(data);
-    await this.userRepository.save(newSubscriber);
-    return newSubscriber;
+    const newUser = await this.userRepository.create(data);
+    await this.userRepository.save(newUser);
+    return newUser;
   }
 
   async getUser(): Promise<User[]> {
