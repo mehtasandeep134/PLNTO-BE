@@ -1,23 +1,27 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { UserCreatedEvent } from 'apps/events/user.event';
+import { Repository } from 'typeorm';
+import User from './entity/user.entity';
 
 @Injectable()
 export class UserService {
-  private readonly user: any[] = [];
+  constructor(
+    @Inject('USER_REPOSITORY')
+    private userRepository: Repository<User>,
+  ) {}
 
   getHello(): string {
     return 'Hello World!';
   }
 
-  handleUserCreated(data: UserCreatedEvent) {
+  async handleUserCreated(data: UserCreatedEvent) {
     console.log('user creation handling', data);
-    this.user.push({
-      email: data.email,
-      timestamp: Date.now(),
-    });
+    const newSubscriber = await this.userRepository.create(data);
+    await this.userRepository.save(newSubscriber);
+    return newSubscriber;
   }
 
-  getUser() {
-    return this.user;
+  async getUser(): Promise<User[]> {
+    return this.userRepository.find();
   }
 }

@@ -19,22 +19,28 @@ export class AppService {
   createUser(createUserRequest: CreateUserRequest) {
     this.communicationClient.emit(
       'user_created',
-      new UserCreatedEvent(createUserRequest.email),
+      new UserCreatedEvent(createUserRequest.email, createUserRequest.password),
     );
     this.userClient.emit(
       'user_created',
-      new UserCreatedEvent(createUserRequest.email),
+      new UserCreatedEvent(createUserRequest.email, createUserRequest.password),
     );
   }
 
   createProducts(createProductsRequest: CreateUserRequest) {
     this.communicationClient.emit(
       'products_created',
-      new UserCreatedEvent(createProductsRequest.email),
+      new UserCreatedEvent(
+        createProductsRequest.email,
+        createProductsRequest.password,
+      ),
     );
     this.productsClient.emit(
       'products_created',
-      new ProductCreatedEvent(createProductsRequest.email),
+      new ProductCreatedEvent(
+        createProductsRequest.email,
+        createProductsRequest.password,
+      ),
     );
   }
 
