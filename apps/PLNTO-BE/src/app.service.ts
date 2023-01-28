@@ -17,10 +17,13 @@ export class AppService {
   }
 
   createUser(createUserRequest: CreateUserRequest) {
+    // emit event to keep communication logs
     this.communicationClient.emit(
       'user_created',
       new UserCreatedEvent(createUserRequest.email, createUserRequest.password),
     );
+
+    // emit event to keep user logs
     this.userClient.emit(
       'user_created',
       new UserCreatedEvent(createUserRequest.email, createUserRequest.password),
@@ -28,6 +31,7 @@ export class AppService {
   }
 
   createProducts(createProductsRequest: CreateUserRequest) {
+    // emit event to keep communication logs
     this.communicationClient.emit(
       'products_created',
       new UserCreatedEvent(
@@ -35,6 +39,8 @@ export class AppService {
         createProductsRequest.password,
       ),
     );
+
+    // emit event to keep product logs
     this.productsClient.emit(
       'products_created',
       new ProductCreatedEvent(
@@ -45,10 +51,12 @@ export class AppService {
   }
 
   getProducts() {
+    // emit event to keep product logs
     return this.productsClient.send({ cmd: 'get_products' }, {});
   }
 
   getUser() {
+    // emit event to keep user logs
     return this.userClient.send({ cmd: 'get_user' }, {});
   }
 }
