@@ -45,6 +45,7 @@ export class AppService {
       'products_created',
       new ProductCreatedEvent(
         createProductsRequest.email,
+        createProductsRequest.name,
         createProductsRequest.password,
       ),
     );

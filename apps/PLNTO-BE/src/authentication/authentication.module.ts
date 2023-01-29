@@ -7,7 +7,7 @@ import { LocalStrategy } from './local.strategy';
 
 @Module({
   imports: [UserModule, PassportModule],
-  controllers: [AuthenticationController, LocalStrategy],
+  controllers: [AuthenticationController],
   providers: [AuthenticationService],
 })
 export class AuthenticationModule {}

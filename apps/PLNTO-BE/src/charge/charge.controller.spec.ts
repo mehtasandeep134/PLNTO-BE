@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { ChargeController } from './charge.controller';
+import ChargeController from './charge.controller';
 import { ChargeService } from './charge.service';
 
 describe('ChargeController', () => {

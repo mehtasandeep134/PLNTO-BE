@@ -35,7 +35,7 @@ export class UserService {
       userData.email,
     );
 
-    const newUser = await this.userRepository.create({
+    const newUser = this.userRepository.create({
       ...userData,
       stripeCustomerId: stripeCustomer.id,
     });
