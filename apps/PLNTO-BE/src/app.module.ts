@@ -5,6 +5,8 @@ import { AppService } from './app.service';
 import { EventEmitterModule } from '@nestjs/event-emitter';
 import { ConfigModule } from '@nestjs/config';
 // import { DatabaseDBModule } from 'apps/database/database.module';
+import { ChargeModule } from './charge/charge.module';
+import { AuthenticationModule } from './authentication/authentication.module';
 
 @Module({
   imports: [
@@ -45,6 +47,8 @@ import { ConfigModule } from '@nestjs/config';
         options: { port: 3302 },
       },
     ]),
+    ChargeModule,
+    AuthenticationModule,
   ],
   controllers: [AppController],
   providers: [AppService],
