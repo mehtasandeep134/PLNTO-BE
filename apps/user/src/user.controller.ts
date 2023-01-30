@@ -17,9 +17,9 @@ export class UserController {
     return this.userService.getUser();
   }
 
-  @Post('user_created')
+  @Post('user')
   handleUserCreatedApi(data: UserCreatedEvent) {
-    this.userService.handleUserCreated(data);
+    this.userService.create(data);
   }
 
   @EventPattern('user_created')

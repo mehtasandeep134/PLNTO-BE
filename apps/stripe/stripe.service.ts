@@ -7,16 +7,21 @@ export default class StripeService {
   private stripe: Stripe;
 
   constructor(private configService: ConfigService) {
-    this.stripe = new Stripe(configService.get('STRIPE_SECRET_KEY'), {
-      apiVersion: '2022-11-15',
-    });
+    this.stripe = new Stripe(
+      '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',
+      {
+        apiVersion: '2022-11-15',
+      },
+    );
   }
 
   public async createCustomer(name: string, email: string) {
-    return this.stripe.customers.create({
+    const customer = this.stripe.customers.create({
       name,
       email,
     });
+
+    return customer;
   }
 
   public async charge(
@@ -28,7 +33,7 @@ export default class StripeService {
       amount,
       customer: customerId,
       payment_method: paymentMethodId,
-      currency: this.configService.get('STRIPE_CURRENCY'),
+      currency: 'INR',
       confirm: true,
     });
   }

@@ -4,9 +4,9 @@ import { Exclude } from 'class-transformer';
 @Entity()
 class User {
   @PrimaryGeneratedColumn()
-  public id: number;
+  public id?: number;
 
-  @Column({ unique: true })
+  @Column()
   public email: string;
 
   @Column()

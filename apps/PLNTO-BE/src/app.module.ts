@@ -6,6 +6,7 @@ import { EventEmitterModule } from '@nestjs/event-emitter';
 import { ConfigModule } from '@nestjs/config';
 // import { DatabaseDBModule } from 'apps/database/database.module';
 import { AuthenticationModule } from './authentication/authentication.module';
+import StripeService from 'apps/stripe/stripe.service';
 
 @Module({
   imports: [
@@ -49,6 +50,6 @@ import { AuthenticationModule } from './authentication/authentication.module';
     AuthenticationModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, StripeService],
 })
 export class AppModule {}
