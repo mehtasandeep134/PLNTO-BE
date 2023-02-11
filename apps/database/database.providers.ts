@@ -11,7 +11,7 @@ export const databaseProviders = [
         port: 5432,
         username: 'postgres',
         password: 'postgres',
-        database: 'new_postgres',
+        database: 'postgres',
         entities: [User],
         synchronize: true,
       });
