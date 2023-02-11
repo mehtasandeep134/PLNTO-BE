@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { SwaggerModule } from '@nestjs/swagger';
-import { createDocument } from 'apps/swagger/swagger';
+import { createDocument } from 'apps/shared/swagger/swagger';
 import { AppModule } from './app.module';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 require('dotenv').config();

@@ -1,8 +1,8 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
-import { CreateUserRequest } from 'apps/dto/create-user.dto';
-import { ProductCreatedEvent } from 'apps/events/product.event';
-import { UserCreatedEvent } from 'apps/events/user.event';
+import { CreateUserRequest } from 'apps/shared/dto/create-user.dto';
+import { ProductCreatedEvent } from 'apps/shared/events/product.event';
+import { UserCreatedEvent } from 'apps/shared/events/user.event';
 
 @Injectable()
 export class AppService {

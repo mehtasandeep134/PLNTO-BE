@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
-import { CreateUserRequest } from 'apps/dto/create-user.dto';
-import { CreateProductsRequest } from 'apps/dto/created-products.dto';
+import { CreateUserRequest } from 'apps/shared/dto/create-user.dto';
+import { CreateProductsRequest } from 'apps/shared/dto/created-products.dto';
 import { AppService } from './app.service';
 
 @Controller()

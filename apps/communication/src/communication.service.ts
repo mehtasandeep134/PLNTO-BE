@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { ProductCreatedEvent } from 'apps/events/product.event';
-import { UserCreatedEvent } from 'apps/events/user.event';
+import { ProductCreatedEvent } from 'apps/shared/events/product.event';
+import { UserCreatedEvent } from 'apps/shared/events/user.event';
 
 @Injectable()
 export class CommunicationService {

@@ -1,7 +1,7 @@
 import { Controller, Get, Post } from '@nestjs/common';
 import { UserService } from './user.service';
 import { EventPattern, MessagePattern } from '@nestjs/microservices';
-import { UserCreatedEvent } from 'apps/events/user.event';
+import { UserCreatedEvent } from 'apps/shared/events/user.event';
 
 @Controller()
 export class UserController {

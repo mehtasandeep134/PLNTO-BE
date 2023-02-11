@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { UserCreatedEvent } from 'apps/events/user.event';
+import { UserCreatedEvent } from 'apps/shared/events/user.event';
 import { Repository } from 'typeorm';
 import User from './entity/user.entity';
 
